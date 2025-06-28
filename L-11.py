@@ -26,7 +26,7 @@ while True:
             print("User Sucessfully Added!!")
 
         except:
-                print("Invalid Input!!")
+            print("Invalid Input!!")
 
     elif choice =="2":
         if not users:
@@ -36,19 +36,78 @@ while True:
             for user in users:
                 print(user)
 
-#     elif choice == "3"
-#         try:
+    elif choice == "3":
 
-#             user_id = int(input("Enter Update user id : "))
+        try:
 
-#             for user["id"]
+            user_id = int(input("Enter update user id : "))
 
-#         except:
+            found = False
 
-# users = [
-#     {"id":1 , "name":"Alice" , "age":20},
-#     {"id":2 , "name":"Melisha" , "age":19}    
-# ]
+            for user in users:
 
-# for user["id"] == user_id in users:
-#     print(user)
+                if user["id"] == user_id:
+                    
+                    field = input("Enter your field to update (name/age)").lower()
+
+                    if field in user:
+                        
+                        if field == "age":
+
+                            user["age"] = int(input("Enter new age : "))
+                        
+                        else:
+                            user["name"] = input("Enter new name : ")
+                        
+                        print("User update sucessfully!!!")
+
+                    else:
+                        print("invalid field!!")
+
+                    found = True
+
+                    break
+
+                if not found:
+
+                    print("User not found!!!")
+
+        except:
+
+            print("Invalid input!!!")
+
+    elif choice == "4":
+
+        try:
+
+            user_id = int(input("Enter ID to Delete User : "))
+
+            for user in users:
+
+                new_users = []
+
+                if user["id"] != user_id:
+
+                    new_users.append(user)
+
+                    users = new_users
+
+                    print("user delete successfully!!!")
+
+        except:
+
+            print("invalid input!!!")
+
+    elif choice == "5":
+
+        print("Program exit successfully!!")
+
+
+    else:
+
+        print("Invalid Choice, Please Enter number of 1 to 5.")        
+
+
+
+
+                                 
